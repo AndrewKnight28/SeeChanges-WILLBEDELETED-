@@ -20,7 +20,6 @@ Dim wb_interfaz As Worksheet
 
 'Inicia el cronómetro
 t = Timer
-  'NUESTRO CÓDIGO
 Set wb = ThisWorkbook
 Set wb_interfaz = ThisWorkbook.Sheets(1)
 nombre = wb.Name
@@ -36,7 +35,7 @@ If Dialogo.Show = -1 Then
         Workbooks.Open Filename:= _
         ArchivoRIESGOSSeleccionado
     
-
+    MsgBox ActiveWorkbook.Name
     If ArchivoRIESGOSSeleccionado <> " " Then
         algo = True
     End If
@@ -44,7 +43,7 @@ If Dialogo.Show = -1 Then
     Next ArchivoRIESGOSSeleccionado
 Else
 
- MsgBox "No se ha escogido el archivo "
+MsgBox "No se ha escogido el archivo "
     If algo = False Then
         GoTo Despedida
     End If
@@ -75,7 +74,7 @@ End If
     
     txtArchivo.Close
     
-
+   MsgBox "Archivo de texto generado", vbInformation, "Txt"
  'Para la IZQUIERDA CT_CTBL
 
 'wb1 = libro origen RIESGOS
