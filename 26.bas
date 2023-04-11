@@ -14,7 +14,7 @@ Dim ultimafila As Double
 Set wb = ThisWorkbook
 Set wb_interfaz = wb.Worksheets(1)
 Set wb2 = Workbooks.Open(wb_interfaz.Range("O11").Value)
-Set wb2_s3 = wb2.Worksheets("Calculo S3")
+Set wb2_s3 = wb2.Worksheets("Calculo_S3")
     
     wb2.Activate
     wb2_s3.Activate
@@ -63,7 +63,7 @@ Set wb2_s3 = wb2.Worksheets("Calculo S3")
     wb2_s3.AutoFilter.Sort.SortFields.Add2 Key:= _
         Range("Q1:Q" & ultimafila), SortOn:=xlSortOnValues, Order:=xlAscending, DataOption _
         :=xlSortNormal
-    With wb2_s3.AutoFilter.Sort
+    With ActiveWorkbook.Worksheets("Calculo_S3").AutoFilter.Sort
         .Header = xlYes
         .MatchCase = False
         .Orientation = xlTopToBottom
@@ -78,7 +78,7 @@ Set wb2_s3_2 = ActiveSheet
 wb2_s3_2.Name = "Tabla1"
 
     wb2.PivotCaches.Create(SourceType:=xlDatabase, SourceData:= _
-        "Calculo S3!R1C1:R" & ultimafila & "C37", Version:=6).CreatePivotTable TableDestination _
+        "Calculo_S3!R1C1:R" & ultimafila & "C37", Version:=6).CreatePivotTable TableDestination _
         :="Tabla1!R3C1", TableName:="TablaDinámica15", DefaultVersion:=6
     wb2_s3_2.Select
     wb2_s3_2.Cells(3, 1).Select
@@ -298,57 +298,57 @@ Dim primfilaINMOBI2 As Double
   
     wb2_s3_3.Range("B2").Select
     ActiveCell.FormulaR1C1 = _
-        "=SUM('" & wb2_s3.Name & "'!R" & primfila1 & "C[21]:R" & ultfila1 & "C[21])"
+        "=SUM(Calculo_S3!R" & primfila1 & "C[21]:R" & ultfila1 & "C[21])"
     wb2_s3_3.Columns("B:B").Select
     Selection.NumberFormat = "General"
  'empieza la suma producto de las carteras
     wb2_s3_3.Range("C2").Select
     ActiveCell.FormulaR1C1 = _
-        "=SUMPRODUCT('" & wb2_s3.Name & "'!R" & primfila1 & "C[17]:R" & ultfila1 & "C[17],'" & wb2_s3.Name & "'!R" & primfila1 & "C[20]:R" & ultfila1 & "C[20])"
+        "=SUMPRODUCT(Calculo_S3!R" & primfila1 & "C[17]:R" & ultfila1 & "C[17],Calculo_S3!R" & primfila1 & "C[20]:R" & ultfila1 & "C[20])"
     wb2_s3_3.Range("D2").Select
     Application.CutCopyMode = False
     ActiveCell.FormulaR1C1 = "=RC[-1]/RC[-2]"
     wb2_s3_3.Range("C3").Select
     ActiveCell.FormulaR1C1 = _
-        "=SUMPRODUCT('" & wb2_s3.Name & "'!R" & primfila2 & "C[17]:R" & ultfila2 & "C[17],'" & wb2_s3.Name & "'!R" & primfila2 & "C[20]:R" & ultfila2 & "C[20])"
+        "=SUMPRODUCT(Calculo_S3!R" & primfila2 & "C[17]:R" & ultfila2 & "C[17],Calculo_S3!R" & primfila2 & "C[20]:R" & ultfila2 & "C[20])"
     wb2_s3_3.Range("C4").Select
     ActiveCell.FormulaR1C1 = _
-        "=SUMPRODUCT('" & wb2_s3.Name & "'!R" & primfila3 & "C[17]:R" & ultfila3 & "C[17],'" & wb2_s3.Name & "'!R" & primfila3 & "C[20]:R" & ultfila3 & "C[20])"
+        "=SUMPRODUCT(Calculo_S3!R" & primfila3 & "C[17]:R" & ultfila3 & "C[17],Calculo_S3!R" & primfila3 & "C[20]:R" & ultfila3 & "C[20])"
     wb2_s3_3.Range("C5").Select
     ActiveCell.FormulaR1C1 = _
-        "=SUMPRODUCT('" & wb2_s3.Name & "'!R" & primfila4 & "C[17]:R" & ultfila4 & "C[17],'" & wb2_s3.Name & "'!R" & primfila4 & "C[20]:R" & ultfila4 & "C[20])"
+        "=SUMPRODUCT(Calculo_S3!R" & primfila4 & "C[17]:R" & ultfila4 & "C[17],Calculo_S3!R" & primfila4 & "C[20]:R" & ultfila4 & "C[20])"
     wb2_s3_3.Range("C6").Select
     ActiveCell.FormulaR1C1 = _
-        "=SUMPRODUCT('" & wb2_s3.Name & "'!R" & primfila5 & "C[17]:R" & ultfila5 & "C[17],'" & wb2_s3.Name & "'!R" & primfila5 & "C[20]:R" & ultfila5 & "C[20])"
+        "=SUMPRODUCT(Calculo_S3!R" & primfila5 & "C[17]:R" & ultfila5 & "C[17],Calculo_S3!R" & primfila5 & "C[20]:R" & ultfila5 & "C[20])"
     wb2_s3_3.Range("C7").Select
     ActiveCell.FormulaR1C1 = _
-        "=SUMPRODUCT('" & wb2_s3.Name & "'!R" & primfila6 & "C[17]:R" & ultfila6 & "C[17],'" & wb2_s3.Name & "'!R" & primfila6 & "C[20]:R" & ultfila6 & "C[20])"
+        "=SUMPRODUCT(Calculo_S3!R" & primfila6 & "C[17]:R" & ultfila6 & "C[17],Calculo_S3!R" & primfila6 & "C[20]:R" & ultfila6 & "C[20])"
     wb2_s3_3.Range("C8").Select
     ActiveCell.FormulaR1C1 = _
-        "=SUMPRODUCT('" & wb2_s3.Name & "'!R" & primfila7 & "C[17]:R" & ultfila7 & "C[17],'" & wb2_s3.Name & "'!R" & primfila7 & "C[20]:R" & ultfila7 & "C[20])"
+        "=SUMPRODUCT(Calculo_S3!R" & primfila7 & "C[17]:R" & ultfila7 & "C[17],Calculo_S3!R" & primfila7 & "C[20]:R" & ultfila7 & "C[20])"
     wb2_s3_3.Range("C9").Select
     ActiveCell.FormulaR1C1 = _
-        "=SUMPRODUCT('" & wb2_s3.Name & "'!R" & primfila8 & "C[17]:R" & ultfila8 & "C[17],'" & wb2_s3.Name & "'!R" & primfila8 & "C[20]:R" & ultfila8 & "C[20])"
+        "=SUMPRODUCT(Calculo_S3!R" & primfila8 & "C[17]:R" & ultfila8 & "C[17],Calculo_S3!R" & primfila8 & "C[20]:R" & ultfila8 & "C[20])"
     wb2_s3_3.Range("C10").Select
     ActiveCell.FormulaR1C1 = _
-        "=SUMPRODUCT('" & wb2_s3.Name & "'!R" & primfila9 & "C[17]:R" & ultfila9 & "C[17],'" & wb2_s3.Name & "'!R" & primfila9 & "C[20]:R" & ultfila9 & "C[20])"
+        "=SUMPRODUCT(Calculo_S3!R" & primfila9 & "C[17]:R" & ultfila9 & "C[17],Calculo_S3!R" & primfila9 & "C[20]:R" & ultfila9 & "C[20])"
 'continuamos con la suma del resto de las carteras
     wb2_s3_3.Range("B3").Select
-    ActiveCell.FormulaR1C1 = "=SUM('" & wb2_s3.Name & "'!R" & primfila2 & "C[21]:R" & ultfila2 & "C[21])"
+    ActiveCell.FormulaR1C1 = "=SUM(Calculo_S3!R" & primfila2 & "C[21]:R" & ultfila2 & "C[21])"
     wb2_s3_3.Range("B4").Select
-    ActiveCell.FormulaR1C1 = "=SUM('" & wb2_s3.Name & "'!R" & primfila3 & "C[21]:R" & ultfila3 & "C[21])"
+    ActiveCell.FormulaR1C1 = "=SUM(Calculo_S3!R" & primfila3 & "C[21]:R" & ultfila3 & "C[21])"
     wb2_s3_3.Range("B5").Select
-    ActiveCell.FormulaR1C1 = "=SUM('" & wb2_s3.Name & "'!R" & primfila4 & "C[21]:R" & ultfila4 & "C[21])"
+    ActiveCell.FormulaR1C1 = "=SUM(Calculo_S3!R" & primfila4 & "C[21]:R" & ultfila4 & "C[21])"
     wb2_s3_3.Range("B6").Select
-    ActiveCell.FormulaR1C1 = "=SUM('" & wb2_s3.Name & "'!R" & primfila5 & "C[21]:R" & ultfila5 & "C[21])"
+    ActiveCell.FormulaR1C1 = "=SUM(Calculo_S3!R" & primfila5 & "C[21]:R" & ultfila5 & "C[21])"
     wb2_s3_3.Range("B7").Select
-    ActiveCell.FormulaR1C1 = "=SUM('" & wb2_s3.Name & "'!R" & primfila6 & "C[21]:R" & ultfila6 & "C[21])"
+    ActiveCell.FormulaR1C1 = "=SUM(Calculo_S3!R" & primfila6 & "C[21]:R" & ultfila6 & "C[21])"
     wb2_s3_3.Range("B8").Select
-    ActiveCell.FormulaR1C1 = "=SUM('" & wb2_s3.Name & "'!R" & primfila7 & "C[21]:R" & ultfila7 & "C[21])"
+    ActiveCell.FormulaR1C1 = "=SUM(Calculo_S3!R" & primfila7 & "C[21]:R" & ultfila7 & "C[21])"
     wb2_s3_3.Range("B9").Select
-    ActiveCell.FormulaR1C1 = "=SUM('" & wb2_s3.Name & "'!R" & primfila8 & "C[21]:R" & ultfila8 & "C[21])"
+    ActiveCell.FormulaR1C1 = "=SUM(Calculo_S3!R" & primfila8 & "C[21]:R" & ultfila8 & "C[21])"
     Range("B10").Select
-    ActiveCell.FormulaR1C1 = "=SUM('" & wb2_s3.Name & "'!R" & primfila9 & "C[21]:R" & ultfila9 & "C[21])"
+    ActiveCell.FormulaR1C1 = "=SUM(Calculo_S3!R" & primfila9 & "C[21]:R" & ultfila9 & "C[21])"
     
  
     
@@ -363,7 +363,7 @@ Dim primfilaINMOBI2 As Double
     wb2_s3.Activate
     wb2_s3.Range("AK2").Select
     ActiveCell.FormulaR1C1 = _
-        "=IF('" & wb2_s3.Name & "'!RC[-17]=0,LOOKUP(RC[-1],'Tasas a calcular'!C[-36]:C[-33]),'" & wb2_s3.Name & "'!RC[-17])"
+        "=IF(Calculo_S3!RC[-17]=0,LOOKUP(RC[-1],'Tasas a calcular'!C[-36]:C[-33]),Calculo_S3!RC[-17])"
     wb2_s3.Range("AK2").Select
     Selection.AutoFill Destination:=Range("AK2:AK" & ultimafila)
     wb2_s3.Range("AK2:AK" & ultimafila).Select
@@ -382,11 +382,11 @@ Dim primfilaINMOBI2 As Double
     Selection.AutoFilter
     wb2_s3.Range("$A$1:$AM$" & ultimafila).AutoFilter Field:=17, Criteria1:= _
         "Inmobiliarias"
-    wb2_s3.AutoFilter.Sort.SortFields.Clear
-    wb2_s3.AutoFilter.Sort.SortFields.Add2 Key:= _
+    ActiveWorkbook.Worksheets("Calculo_S3").AutoFilter.Sort.SortFields.Clear
+    ActiveWorkbook.Worksheets("Calculo_S3").AutoFilter.Sort.SortFields.Add2 Key:= _
         Range("M1:M" & ultimafila), SortOn:=xlSortOnValues, Order:=xlAscending, DataOption _
         :=xlSortNormal
-    With wb2_s3.AutoFilter.Sort
+    With ActiveWorkbook.Worksheets("Calculo_S3").AutoFilter.Sort
         .Header = xlYes
         .MatchCase = False
         .Orientation = xlTopToBottom
@@ -439,7 +439,7 @@ Dim primfilaINMOBI2 As Double
 
     wb2_s3.Range("AK" & primfilaIM).Select
     ActiveCell.FormulaR1C1 = _
-        "=IF('" & wb2_s3.Name & "'!RC[-17]=0,LOOKUP('" & wb2_s3.Name & "'!RC[-1],'Tasas a calcular'!C[-36]:C[-33]),'" & wb2_s3.Name & "'!RC[-17])"
+        "=IF(Calculo_S3!RC[-17]=0,LOOKUP(Calculo_S3!RC[-1],'Tasas a calcular'!C[-36]:C[-33]),Calculo_S3!RC[-17])"
     Range("AK" & primfilaIM).Select
     Selection.AutoFill Destination:=Range("AK" & primfilaINMOBI & ":AK" & ultfilaINMOBI), Type:= _
         xlFillDefault
@@ -504,10 +504,9 @@ Dim primfilaINMOBI2 As Double
     Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _
         :=False, Transpose:=False
 
-    wb2.Save
+
 ' TABLA DINAMICA PARA VALIDACION
-    MsgBox " Se realizaron los ajustes de las provisiones "
-    
+
     wb_interfaz.Activate
 
 
