@@ -252,7 +252,7 @@ Set wb2_saldosmen = wb2.Worksheets("SaldosMensuales")
     wb_interfaz.Activate
     wb_interfaz.Range("O7").FormulaR1C1 = rutawb3 & "\" & wb3.Name
     
-    Debug.Print nombre
+    
     
 
 
@@ -268,5 +268,3 @@ Adios:
 
 Despedida:
 End Sub
-
-
